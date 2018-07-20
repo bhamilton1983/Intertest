@@ -44,7 +44,7 @@ class HDCameraViewController: UIViewController, RPPreviewViewControllerDelegate,
     var toggleState = 1
 
     
-    @IBOutlet weak var zoomControlContainer: UIView!
+ 
     @IBOutlet weak var sideControlContainer: UIView!
     @IBAction func playAction(_ sender: Any) {
     

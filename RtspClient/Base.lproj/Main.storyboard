@@ -205,7 +205,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1415" y="-6997"/>
+            <point key="canvasLocation" x="1369" y="-7053"/>
         </scene>
         <!--LoginIP-->
         <scene sceneID="yUX-Vj-YEX">
@@ -219,42 +219,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="329" height="271"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZO-V2-1yZ">
-                                <rect key="frame" x="98" y="28" width="156" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkG-T5-Rcu">
+                                <rect key="frame" x="34" y="99" width="239" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Find IONODES DEVICE">
+                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFf-fc-8uW">
+                                <rect key="frame" x="34" y="142" width="239" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jE6-Cm-zj3">
+                                <rect key="frame" x="281" y="94" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Set">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" white="1" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="setIP:" destination="0yk-Iw-e6m" eventType="touchUpInside" id="58h-5c-LvY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upV-Ez-jsz">
+                                <rect key="frame" x="281" y="137" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Set">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="setIP2:" destination="0yk-Iw-e6m" eventType="touchUpInside" id="PN3-RR-kmA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZO-V2-1yZ">
+                                <rect key="frame" x="34" y="28" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icons8-search.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="doButton:" destination="0yk-Iw-e6m" eventType="touchUpInside" id="L0f-oF-TzA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkG-T5-Rcu">
-                                <rect key="frame" x="34" y="99" width="239" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFf-fc-8uW">
-                                <rect key="frame" x="34" y="128" width="208" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
+                        <outlet property="firstButton" destination="jE6-Cm-zj3" id="YOJ-dT-Jht"/>
                         <outlet property="ip2Label" destination="bFf-fc-8uW" id="Ycl-Pm-5cY"/>
                         <outlet property="ipFind" destination="mZO-V2-1yZ" id="eoV-87-Kon"/>
                         <outlet property="ipLabel" destination="rkG-T5-Rcu" id="ZIZ-DF-0on"/>
+                        <outlet property="secondButton" destination="upV-Ez-jsz" id="sFN-nB-ftK"/>
+                        <segue destination="jQn-VN-SxB" kind="show" identifier="cameraShow" id="Y1Q-Kd-TCU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z7Z-L0-hvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-162" y="-6986"/>
+            <point key="canvasLocation" x="-273" y="-7684"/>
         </scene>
         <!--Filter View-->
         <scene sceneID="H2Q-o5-my4">
@@ -345,7 +373,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="block camera_active_48"/>
                                         <connections>
-                                            <segue destination="jQn-VN-SxB" kind="show" id="oW2-WV-9fQ"/>
+                                            <segue destination="jQn-VN-SxB" kind="show" identifier="cameraController" id="oW2-WV-9fQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="che-KX-hlI">
@@ -406,14 +434,6 @@
                                     </textField>
                                 </subviews>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Aq-Yr-1t7">
-                                <rect key="frame" x="788" y="125" width="96" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="FindIONODES"/>
-                                <connections>
-                                    <action selector="findButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gvz-YX-cLF"/>
-                                </connections>
-                            </button>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bpp-nL-3dG">
                                 <rect key="frame" x="20" y="141" width="329" height="271"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -428,7 +448,6 @@
                     <navigationItem key="navigationItem" id="VjG-kv-T3C"/>
                     <connections>
                         <outlet property="compButton" destination="7nf-TH-N8f" id="4l6-FX-mvo"/>
-                        <outlet property="findBoardButton" destination="9Aq-Yr-1t7" id="DIs-jG-1TX"/>
                         <outlet property="inputSelector" destination="cWJ-JX-oRo" id="LU0-kX-94v"/>
                         <outlet property="ipaddress" destination="LxI-w3-rGA" id="4EX-gK-Dnv"/>
                         <outlet property="loginScreenMainView" destination="8bC-Xf-vdC" id="6HT-rY-vOD"/>
@@ -439,18 +458,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-265" y="-6430"/>
+            <point key="canvasLocation" x="73" y="-7941"/>
         </scene>
-        <!--Camera View Controller-->
+        <!--cameraController-->
         <scene sceneID="NWt-qf-9AY">
             <objects>
-                <viewController id="jQn-VN-SxB" customClass="HDCameraViewController" customModule="RtspClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cameraController" title="cameraController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jQn-VN-SxB" customClass="HDCameraViewController" customModule="RtspClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PhD-LZ-wnY"/>
                         <viewControllerLayoutGuide type="bottom" id="QCE-o3-xtp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RIJ-Yq-jWm">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="329" height="271"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N7w-ly-vBd">
@@ -504,7 +523,7 @@
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1B-GO-egf">
-                                <rect key="frame" x="647" y="430" width="377" height="338"/>
+                                <rect key="frame" x="647" y="-67" width="0.0" height="338"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="TnK-KM-to9" kind="embed" id="UPP-Te-LpA"/>
@@ -645,7 +664,7 @@
                         <viewControllerLayoutGuide type="bottom" id="neo-lb-qDP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eg6-by-Zy3">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="329"/>
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="338"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tuv-zV-ITe">
@@ -662,7 +681,7 @@
                                 </connections>
                             </segmentedControl>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oOO-B6-PrZ">
-                                <rect key="frame" x="0.0" y="44" width="1024" height="82"/>
+                                <rect key="frame" x="0.0" y="44" width="0.0" height="82"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.92798465490000004" green="0.014816831799999999" blue="0.00046456514970000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pickerView>
@@ -802,12 +821,14 @@
         <image name="f-stop_active_72" width="72" height="72"/>
         <image name="facebutton" width="16" height="16"/>
         <image name="iPhoneAppHome_virt" width="1125" height="2436"/>
+        <image name="icons8-search.png" width="60" height="60"/>
         <image name="menu_active_48" width="48" height="48"/>
         <image name="menu_active_72" width="72" height="72"/>
         <image name="play_active_48" width="48" height="48"/>
         <image name="stop_active_48" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KPK-iL-A8g"/>
+        <segue reference="UPP-Te-LpA"/>
+        <segue reference="Y1Q-Kd-TCU"/>
     </inferredMetricsTieBreakers>
 </document>

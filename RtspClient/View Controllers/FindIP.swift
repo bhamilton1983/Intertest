@@ -7,7 +7,9 @@ import UIKit
 class LoginIP: UIViewController, NetServiceBrowserDelegate, NetServiceDelegate {
     var nsb : NetServiceBrowser!
     var services = [NetService]()
-    
+    var newArray: [String] = []
+    var ipaddress1:String = ""
+    var ipaddress2:String = ""
     @IBOutlet weak var ip2Label: UILabel!
     @IBOutlet weak var ipFind: UIButton!
     @IBAction func doButton (_ sender: Any!) {
@@ -16,12 +18,42 @@ class LoginIP: UIViewController, NetServiceBrowserDelegate, NetServiceDelegate {
         self.nsb = NetServiceBrowser()
         self.nsb.delegate = self
         self.nsb.searchForServices(ofType:"_ionodes-media._tcp", inDomain: "local")
+        for (index, element) in newArray.enumerated() {
+            ipLabel.text = self.newArray[0]
+            ip2Label.text  = self.newArray[1]
+            ipaddress1 = ipLabel.text!
+            ipaddress2 = ip2Label.text!
+            
+        }
+
     }
     
     @IBOutlet weak var ipLabel: UILabel!
     
+    @IBOutlet weak var firstButton: UIButton!
     
- 
+    
+    @IBOutlet weak var secondButton: UIButton!
+    
+  @IBAction func setIP(_ sender: Any) {
+
+    
+    Login.rtsp = "rtsp://admin:admin@\(ipaddress1)/videoinput_1/h264_1/media.stm"
+    Login.ip = "\(ipaddress1)"
+        performSegue(withIdentifier: "cameraShow", sender: Any?.self)
+   }
+
+
+
+   @IBAction func setIP2(_ sender: Any) {
+       Login.rtsp = "rtsp://admin:admin@\(ipaddress2)/videoinput_1/h264_1/media.stm"
+        Login.ip = "\(ipaddress2)"
+        performSegue(withIdentifier: "cameraShow", sender: Any?.self)
+    
+    
+   }
+
+    
     func updateInterface () {
         for service in self.services {
             if service.port == -1 {
@@ -33,10 +65,12 @@ class LoginIP: UIViewController, NetServiceBrowserDelegate, NetServiceDelegate {
                 print("service \(service.name) of type \(service.type)," +
                     "port \(service.port), addresses \(service.addresses!))")
                 print(service.addresses!)
+//                ipLabel.text = self.newArray[0]
+//                ip2Label.text = self.newArray[1]
             }
         }
     }
-    
+
     func netServiceDidResolveAddress(_ sender: NetService) {
         var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
         guard let data = sender.addresses?.first else { return }
@@ -45,13 +79,14 @@ class LoginIP: UIViewController, NetServiceBrowserDelegate, NetServiceDelegate {
                 return
             }
         }
+      
         let ipAddress = String(cString:hostname)
-        print(ipAddress)
-          ipLabel.text = ipAddress
-        
+        newArray.append(ipAddress)
         self.updateInterface()
+        print(newArray)
     }
-    
+
+  
     func netServiceBrowser(_ aNetServiceBrowser: NetServiceBrowser, didFind aNetService: NetService, moreComing: Bool) {
         print("adding a service")
         self.services.append(aNetService)
