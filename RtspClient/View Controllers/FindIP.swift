@@ -18,7 +18,10 @@ class LoginIP: UIViewController, NetServiceBrowserDelegate, NetServiceDelegate {
         self.nsb = NetServiceBrowser()
         self.nsb.delegate = self
         self.nsb.searchForServices(ofType:"_ionodes-media._tcp", inDomain: "local")
-        for (index, element) in newArray.enumerated() {
+     
+        
+        
+        for (_, _) in newArray.enumerated() {
             ipLabel.text = self.newArray[0]
             ip2Label.text  = self.newArray[1]
             ipaddress1 = ipLabel.text!
@@ -36,21 +39,14 @@ class LoginIP: UIViewController, NetServiceBrowserDelegate, NetServiceDelegate {
     @IBOutlet weak var secondButton: UIButton!
     
   @IBAction func setIP(_ sender: Any) {
-
-    
     Login.rtsp = "rtsp://admin:admin@\(ipaddress1)/videoinput_1/h264_1/media.stm"
     Login.ip = "\(ipaddress1)"
         performSegue(withIdentifier: "cameraShow", sender: Any?.self)
    }
-
-
-
    @IBAction func setIP2(_ sender: Any) {
        Login.rtsp = "rtsp://admin:admin@\(ipaddress2)/videoinput_1/h264_1/media.stm"
         Login.ip = "\(ipaddress2)"
         performSegue(withIdentifier: "cameraShow", sender: Any?.self)
-    
-    
    }
 
     
