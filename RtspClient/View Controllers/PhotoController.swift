@@ -71,7 +71,7 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
         scrollView.maximumZoomScale = 10.0
         scrollView.zoomScale = 1.0
         imageView.layer.borderWidth = 2
-        imageView.layer.borderColor = UIColor.green.cgColor
+        imageView.layer.borderColor = UIColor.clear.cgColor
         imageView.layer.cornerRadius = 10.5
         scrollMaster.layer.borderWidth = 3
         scrollMaster.layer.borderColor = UIColor.white.cgColor
@@ -87,7 +87,6 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
  
     @IBAction func handlePan1(_ gestureRecognizer: UIPanGestureRecognizer) {
         if gestureRecognizer.state == .began || gestureRecognizer.state == .changed {
-            
             let translation = gestureRecognizer.translation(in: scrollView)
             // note: 'view' is optional and need to be unwrapped
             gestureRecognizer.view!.center = CGPoint(x: gestureRecognizer.view!.center.x + translation.x, y: gestureRecognizer.view!.center.y + translation.y)
@@ -96,7 +95,6 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
     }
     @IBAction func handlePan2(_ gestureRecognizer: UIPanGestureRecognizer) {
         if gestureRecognizer.state == .began || gestureRecognizer.state == .changed {
-            
             let translation = gestureRecognizer.translation(in: scrollMaster)
             // note: 'view' is optional and need to be unwrapped
             gestureRecognizer.view!.center = CGPoint(x: gestureRecognizer.view!.center.x + translation.x, y: gestureRecognizer.view!.center.y + translation.y)
@@ -105,7 +103,6 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
     }
     @IBAction func handlePan3(_ gestureRecognizer: UIPanGestureRecognizer) {
         if gestureRecognizer.state == .began || gestureRecognizer.state == .changed {
-            
             let translation = gestureRecognizer.translation(in: imageView)
             // note: 'view' is optional and need to be unwrapped
             gestureRecognizer.view!.center = CGPoint(x: gestureRecognizer.view!.center.x + translation.x, y: gestureRecognizer.view!.center.y + translation.y)
@@ -152,7 +149,6 @@ class PhotoController: UIViewController, UIImagePickerControllerDelegate, UINavi
 func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
-
 @objc func rotate3(_ gesture: UIRotationGestureRecognizer) {
         imageView.transform = imageView.transform.rotated(by: gesture.rotation)
     }
@@ -162,7 +158,6 @@ func gestureRecognizer1(_ gestureRecognizer: UIGestureRecognizer, shouldRecogniz
 func gestureRecognizer3(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
-    
 @IBAction func Filter(_ sender: Any) {
         guard let image = imageView?.image, let cgimg = image.cgImage else {
             print("imageView doesn't have an image!")
@@ -181,7 +176,6 @@ func gestureRecognizer3(_ gestureRecognizer: UIGestureRecognizer, shouldRecogniz
             print("image filtering failed")
         }
     }
-    
     @IBAction func saveFilterPhotoAction(_ sender: Any) {
         let masterImage = UIImage(view: scrollMaster)
         let renderer = UIGraphicsImageRenderer(size: masterImage.size)
@@ -217,11 +211,7 @@ func gestureRecognizer3(_ gestureRecognizer: UIGestureRecognizer, shouldRecogniz
     }
     
     func process(_ image: UIImage) {
-    
-        
       imageView.image = image
-        
-        
         guard let ciImage = CIImage(image: image) else {
             return
         }
@@ -257,7 +247,6 @@ func gestureRecognizer3(_ gestureRecognizer: UIGestureRecognizer, shouldRecogniz
                               height: boundingBox.height * imageView.bounds.height)
             let origin = CGPoint(x: boundingBox.minX * imageView.bounds.width,
                                  y: (1 - observation.boundingBox.minY) * imageView.bounds.height - size.height)
-            
             let layer = CAShapeLayer()
             layer.frame = CGRect(origin: origin, size: size)
             layer.borderColor = UIColor.yellow.cgColor
@@ -266,7 +255,6 @@ func gestureRecognizer3(_ gestureRecognizer: UIGestureRecognizer, shouldRecogniz
            imageView.layer.addSublayer(layer)
         }
     }
-    
     func cropToBounds(image: UIImage, rect: CGRect) -> UIImage {
        
         let cgimage = image.cgImage!
@@ -283,8 +271,6 @@ func gestureRecognizer3(_ gestureRecognizer: UIGestureRecognizer, shouldRecogniz
         
         return image
     }
-
-
     @IBAction func buttonAction(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -295,9 +281,6 @@ func gestureRecognizer3(_ gestureRecognizer: UIGestureRecognizer, shouldRecogniz
         present(imagePickerController, animated: true, completion: nil)
         
 }
-
-
-    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -306,8 +289,6 @@ func gestureRecognizer3(_ gestureRecognizer: UIGestureRecognizer, shouldRecogniz
         }
         dismiss(animated: true, completion: nil)
     }
-  
-    
     func classificationProcess(_ image: UIImage) {
         
         imageView.image = image
@@ -328,12 +309,9 @@ func gestureRecognizer3(_ gestureRecognizer: UIGestureRecognizer, shouldRecogniz
                                         message: error.localizedDescription)
         }
     }
-    
-    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-
 }
 extension UIImage {
     convenience init(view: UIView) {

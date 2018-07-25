@@ -17,18 +17,26 @@ class LoginIP: UIViewController, NetServiceBrowserDelegate, NetServiceDelegate {
         self.services.removeAll()
         self.nsb = NetServiceBrowser()
         self.nsb.delegate = self
-        self.nsb.searchForServices(ofType:"_ionodes-media._tcp", inDomain: "local")
-     
+        self.nsb.searchForServices(ofType:"_http._tcp", inDomain: "local")
+        var servicesFound:Int
         
-        
+        servicesFound = services.count
+       
         for (_, _) in newArray.enumerated() {
+            if servicesFound  == 0 {
+            ipLabel.text = "no devices found"
+            
+            }
+           
+            else
+            {
             ipLabel.text = self.newArray[0]
             ip2Label.text  = self.newArray[1]
             ipaddress1 = ipLabel.text!
             ipaddress2 = ip2Label.text!
             
         }
-
+    }
     }
     
     @IBOutlet weak var ipLabel: UILabel!
@@ -39,7 +47,7 @@ class LoginIP: UIViewController, NetServiceBrowserDelegate, NetServiceDelegate {
     @IBOutlet weak var secondButton: UIButton!
     
   @IBAction func setIP(_ sender: Any) {
-    Login.rtsp = "rtsp://admin:admin@\(ipaddress1)/videoinput_1/h264_1/media.stm"
+    Login.rtsp = "rtsp://184.72.239.149/vod/mp4:BigBuckBunny_175k.mov"
     Login.ip = "\(ipaddress1)"
         performSegue(withIdentifier: "cameraShow", sender: Any?.self)
    }
@@ -49,7 +57,6 @@ class LoginIP: UIViewController, NetServiceBrowserDelegate, NetServiceDelegate {
         performSegue(withIdentifier: "cameraShow", sender: Any?.self)
    }
 
-    
     func updateInterface () {
         for service in self.services {
             if service.port == -1 {

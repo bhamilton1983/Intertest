@@ -150,15 +150,12 @@ class HDCameraViewController: UIViewController, RPPreviewViewControllerDelegate,
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(scale))
         let rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(rotate))
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
-   
-        
         gestureRecognizer.delegate = self
         pinchGesture.delegate = self
         rotationGesture.delegate = self
-   
        exposureView.layer.borderWidth = 2
        exposureView.layer.borderColor = UIColor.white.cgColor
-       cameraScroll.layer.borderColor = UIColor.black.cgColor
+       cameraScroll.layer.borderColor = UIColor.clear.cgColor
        cameraScroll.layer.borderWidth = 2
        cameraScroll.layer.cornerRadius = 10
        cameraScroll.minimumZoomScale = 0.5
@@ -171,6 +168,7 @@ class HDCameraViewController: UIViewController, RPPreviewViewControllerDelegate,
        cameraScroll.addGestureRecognizer(gestureRecognizer)
        cameraScroll.addSubview(HDimageView)
        cameraScroll.addSubview(overlay)
+        exposureView.isHidden = true
     }
     @objc func doubleTapped() {
         // do something here
@@ -180,11 +178,9 @@ class HDCameraViewController: UIViewController, RPPreviewViewControllerDelegate,
             exposureView.isHidden = true
         }   else  {
             if tapToggle == 1
-                
             {
                 exposureView.isHidden = false
                 tapToggle = 0
-                
             }
         }
     }

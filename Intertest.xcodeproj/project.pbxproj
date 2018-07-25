@@ -41,7 +41,6 @@
 		D3948EAF20E6A92800994184 /* ControlSideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3948EAE20E6A92800994184 /* ControlSideBar.swift */; };
 		D3948EB120E6A96800994184 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3948EB020E6A96800994184 /* PickerViewController.swift */; };
 		D39CA87E20EA5FE1003D31E0 /* ExposureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39CA87D20EA5FE1003D31E0 /* ExposureView.swift */; };
-		D3A33B3E2100E79A0000F3E7 /* IpFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A33B3D2100E79A0000F3E7 /* IpFinder.swift */; };
 		D3A33B402100E8BC0000F3E7 /* FindIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A33B3F2100E8BC0000F3E7 /* FindIP.swift */; };
 		D3C0F00220E7A75F00A0F57B /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C0F00120E7A75F00A0F57B /* SettingsController.swift */; };
 		D3DC9C3F20F4DA4000779542 /* DrawClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC9C3E20F4DA4000779542 /* DrawClass.swift */; };
@@ -91,7 +90,6 @@
 		D3948EB020E6A96800994184 /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		D39CA87D20EA5FE1003D31E0 /* ExposureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureView.swift; sourceTree = "<group>"; };
 		D3A33B022100C91F0000F3E7 /* RtspClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RtspClient.entitlements; sourceTree = "<group>"; };
-		D3A33B3D2100E79A0000F3E7 /* IpFinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IpFinder.swift; sourceTree = "<group>"; };
 		D3A33B3F2100E8BC0000F3E7 /* FindIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIP.swift; sourceTree = "<group>"; };
 		D3C0F00120E7A75F00A0F57B /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		D3DC9C3E20F4DA4000779542 /* DrawClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawClass.swift; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				D3C0F00120E7A75F00A0F57B /* SettingsController.swift */,
-				D3A33B3D2100E79A0000F3E7 /* IpFinder.swift */,
 				D3948E9820E6A53100994184 /* Login.swift */,
 				D3948E9A20E6A55400994184 /* HDCameraViewController.swift */,
 				D39CA87D20EA5FE1003D31E0 /* ExposureView.swift */,
@@ -297,7 +294,6 @@
 				D3A33B402100E8BC0000F3E7 /* FindIP.swift in Sources */,
 				D39CA87E20EA5FE1003D31E0 /* ExposureView.swift in Sources */,
 				D3948EA720E6A7FD00994184 /* ZoomParser.swift in Sources */,
-				D3A33B3E2100E79A0000F3E7 /* IpFinder.swift in Sources */,
 				D3823A7B20EAE81100FB3CC2 /* PhotoController.swift in Sources */,
 				D3948EB120E6A96800994184 /* PickerViewController.swift in Sources */,
 				D3C0F00220E7A75F00A0F57B /* SettingsController.swift in Sources */,
