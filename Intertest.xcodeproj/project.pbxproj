@@ -24,6 +24,7 @@
 		415C63F11CECD063005F81E4 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 415C63EA1CECD063005F81E4 /* libswresample.a */; };
 		415C63F21CECD063005F81E4 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 415C63EB1CECD063005F81E4 /* libswscale.a */; };
 		D326173120EFF0F400170D93 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D326173020EFF0F400170D93 /* FilterView.swift */; };
+		D337A0AE2109338E00AD017C /* ResolutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D337A0AD2109338E00AD017C /* ResolutionViewController.swift */; };
 		D365198120F244C600E64CD2 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = D365198020F244C600E64CD2 /* Image.swift */; };
 		D3712DEC20EBC70800C07773 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3712DEB20EBC70700C07773 /* Assets.xcassets */; };
 		D380435F210225A700C15196 /* icons8-search.png in Resources */ = {isa = PBXBuildFile; fileRef = D380435E210225A700C15196 /* icons8-search.png */; };
@@ -72,6 +73,7 @@
 		415C63EA1CECD063005F81E4 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswresample.a; path = FFMpegiOS/lib/libswresample.a; sourceTree = "<group>"; };
 		415C63EB1CECD063005F81E4 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswscale.a; path = FFMpegiOS/lib/libswscale.a; sourceTree = "<group>"; };
 		D326173020EFF0F400170D93 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		D337A0AD2109338E00AD017C /* ResolutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolutionViewController.swift; sourceTree = "<group>"; };
 		D365198020F244C600E64CD2 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		D3712DEB20EBC70700C07773 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../Desktop/Software Development/Working Dual Layer 2/RtspClient/Assets.xcassets"; sourceTree = "<group>"; };
 		D380435E210225A700C15196 /* icons8-search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-search.png"; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 		D3948E9720E6A4EF00994184 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D337A0AD2109338E00AD017C /* ResolutionViewController.swift */,
 				D3C0F00120E7A75F00A0F57B /* SettingsController.swift */,
 				D3948E9820E6A53100994184 /* Login.swift */,
 				D3948E9A20E6A55400994184 /* HDCameraViewController.swift */,
@@ -310,6 +313,7 @@
 				415C639B1CECC824005F81E4 /* AppDelegate.swift in Sources */,
 				D3948EAB20E6A81600994184 /* ZoomViewController.swift in Sources */,
 				D3948EAF20E6A92800994184 /* ControlSideBar.swift in Sources */,
+				D337A0AE2109338E00AD017C /* ResolutionViewController.swift in Sources */,
 				415C63DC1CECCD69005F81E4 /* AudioStreamer.m in Sources */,
 				D3948E9F20E6A7AC00994184 /* Inceptionv3.mlmodel in Sources */,
 				415C63DE1CECCD69005F81E4 /* Utilities.m in Sources */,

@@ -194,16 +194,16 @@ func gestureRecognizer3(_ gestureRecognizer: UIGestureRecognizer, shouldRecogniz
     }
     
     //Crop Button, not functioning Properly
-    @IBAction func cropAction(_ sender: Any) {
-        
-        var cropMaster = UIImage(view: scrollMaster)
-       cropMaster = cropToBounds(image: cropMaster, rect: scrollMaster.frame)
-        overlay.frame = CGRect.zero
-        print(PhotoController.xPoint)
-        print(PhotoController.yPoint)
-        print(PhotoController.rectMade)
-        print(imageView.image?.size as Any)
-    }
+//    @IBAction func cropAction(_ sender: Any) {
+//
+//        var cropMaster = UIImage(view: scrollMaster)
+//       cropMaster = cropToBounds(image: cropMaster, rect: scrollMaster.frame)
+//        overlay.frame = CGRect.zero
+//        print(PhotoController.xPoint)
+//        print(PhotoController.yPoint)
+//        print(PhotoController.rectMade)
+//        print(imageView.image?.size as Any)
+//    }
     // Seems to be working
     @IBAction func faceAction(_ sender: Any) {
         let masterImage = UIImage(view: scrollMaster)

@@ -183,3 +183,61 @@ class SOAPXMLParserBOOL: NSObject, XMLParserDelegate {
         }
 }
 
+class SOAPXMLParserVariable: NSObject, XMLParserDelegate {
+    
+    static var soapString1:String = ""
+    static var soapString2:String = ""
+    static var soapString3:String = ""
+    
+    var webData2 : NSMutableData?
+    var webData1 : NSMutableData?
+    var webData : NSMutableData?
+    
+    func getParserCommand () {
+        
+        let soapMessage1 = SOAPXMLParserVariable.soapString1
+        let soapMessage2 = SOAPXMLParserVariable.soapString2
+        let soapMessage3 = SOAPXMLParserVariable.soapString3
+        let soapMessage = soapMessage1 + soapMessage2 + soapMessage3
+        
+        print(SOAPXMLParserVariable.soapString1)
+        print(SOAPXMLParserVariable.soapString2)
+        print(SOAPXMLParserVariable.soapString3)
+        
+        let url = NSURL(string:"http://admin:admin@\(Login.ip)/services/configuration.ion?action=setparams&format=text")
+        let theRequest = NSMutableURLRequest(url: url! as URL)
+        theRequest.addValue("text/xml", forHTTPHeaderField: "Content-Type")
+        theRequest.httpMethod = "POST"
+        theRequest.httpBody = soapMessage.data(using: String.Encoding.utf8, allowLossyConversion:false )
+        
+        _ = NSURLConnection(request: theRequest as URLRequest, delegate: self)
+        
+    }
+    func connection(connection: NSURLConnection, didFailWithError error: NSError)
+        
+    {}
+    
+    func connection(connection: NSURLConnection, didReceiveResponse respose: URLResponse)
+        
+    {
+        webData = NSMutableData()
+        
+    }
+    
+    func connection(connection: NSURLConnection, didReceiveData data: NSData)
+        
+    {
+        
+        webData!.append(data as Data)
+    }
+    
+    func connectionDidFinishLoading(connection: NSURLConnection)
+        
+    {
+        let xmlStr = NSString(data: webData! as Data, encoding: String.Encoding.utf8.rawValue)
+        
+        print("xmlst\(String(describing: xmlStr))")
+        
+        
+    }
+}
