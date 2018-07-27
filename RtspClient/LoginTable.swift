@@ -1,49 +1,73 @@
-
+//
+//  LoginTable.swift
+//  RtspClient
+//
+//  Created by Brian Hamilton on 7/27/18.
+//  Copyright © 2018 Andres Rojas. All rights reserved.
+//
 
 import UIKit
 
+class LoginTable: UIViewController, UITableViewDataSource,UITableViewDelegate,NetServiceBrowserDelegate, NetServiceDelegate {
 
-
-class LoginIP: UIViewController, NetServiceBrowserDelegate, NetServiceDelegate {
+    
+    @IBOutlet weak var theButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     var nsb : NetServiceBrowser!
     var services = [NetService]()
-    var newArray: [String] = []
-    var ipaddress1:String = ""
+    var ipaddress1:String?
     var ipaddress2:String = ""
-    @IBOutlet weak var ip2Label: UILabel!
-    @IBOutlet weak var ipFind: UIButton!
+    var data: [String] = []
+    var newArray: [String] = []
     @IBAction func doButton (_ sender: Any!) {
         print("listening for services...")
         self.services.removeAll()
         self.nsb = NetServiceBrowser()
         self.nsb.delegate = self
         self.nsb.searchForServices(ofType:"_ionodes-media._tcp", inDomain: "local")
-        var servicesFound:Int
-        servicesFound = services.count
         
-  
-        }
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
     
     
-    @IBOutlet weak var ipLabel: UILabel!
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return newArray.count
+    }
     
-    @IBOutlet weak var firstButton: UIButton!
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")! //1.
+        let text = newArray[indexPath.row]
+        cell.textLabel?.text = text //3.
+       
+        let cellButton = UIButton()
+        cellButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
+        cellButton.setTitle(text, for: UIControl.State.normal)
+        cellButton.backgroundColor = UIColor.gray
+        cell.addSubview(cellButton)
+        cellButton.addTarget(self, action: #selector(self.buttonClicked(sender:)), for: .touchUpInside)
+        return cell //4.
+    }
+    
+ @objc func buttonClicked(sender: UIButton!) {
+    
+    print("doesthiswork")
+    
+    }
     
     
-    @IBOutlet weak var secondButton: UIButton!
     
-  @IBAction func setIP(_ sender: Any) {
-    Login.rtsp = "rtsp://184.72.239.149/vod/mp4:BigBuckBunny_175k.mov"
-    Login.ip = "\(ipaddress1)"
-        performSegue(withIdentifier: "cameraShow", sender: Any?.self)
-   }
-   @IBAction func setIP2(_ sender: Any) {
-       Login.rtsp = "rtsp://admin:admin@\(ipaddress2)/videoinput_1/h264_1/media.stm"
-        Login.ip = "\(ipaddress2)"
-        performSegue(withIdentifier: "cameraShow", sender: Any?.self)
-   }
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.dataSource = self
+        
+    }
+    
     func updateInterface () {
         for service in self.services {
             if service.port == -1 {
@@ -55,14 +79,13 @@ class LoginIP: UIViewController, NetServiceBrowserDelegate, NetServiceDelegate {
                 print("service \(service.name) of type \(service.type)," +
                     "port \(service.port), addresses \(service.addresses!))")
                 print(service.addresses!)
-                print(newArray)
-            
-                ipaddress1 = self.newArray[0]
-                ipaddress2 = self.newArray[1]
+                self.tableView.reloadData()
             }
+            
         }
     }
-
+    
+    
     func netServiceDidResolveAddress(_ sender: NetService) {
         var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
         guard let data = sender.addresses?.first else { return }
@@ -71,13 +94,11 @@ class LoginIP: UIViewController, NetServiceBrowserDelegate, NetServiceDelegate {
                 return
             }
         }
-        let ipAddress = String(cString:hostname)
-        newArray.append(ipAddress)
+        ipaddress1 = String(cString:hostname)
+        newArray.append(ipaddress1!)
+        print(newArray)
         self.updateInterface()
-        
     }
-
-  
     func netServiceBrowser(_ aNetServiceBrowser: NetServiceBrowser, didFind aNetService: NetService, moreComing: Bool) {
         print("adding a service")
         self.services.append(aNetService)
@@ -96,3 +117,4 @@ class LoginIP: UIViewController, NetServiceBrowserDelegate, NetServiceDelegate {
         }
     }
 }
+

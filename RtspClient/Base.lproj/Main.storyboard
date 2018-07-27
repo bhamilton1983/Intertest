@@ -243,81 +243,6 @@
             </objects>
             <point key="canvasLocation" x="1368.75" y="-7053.125"/>
         </scene>
-        <!--LoginIP-->
-        <scene sceneID="yUX-Vj-YEX">
-            <objects>
-                <viewController id="0yk-Iw-e6m" customClass="LoginIP" customModule="RtspClient" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1wf-ZI-J9z"/>
-                        <viewControllerLayoutGuide type="bottom" id="ovG-xl-m6w"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Yw0-0k-qaL">
-                        <rect key="frame" x="0.0" y="0.0" width="329" height="271"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkG-T5-Rcu">
-                                <rect key="frame" x="34" y="99" width="239" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFf-fc-8uW">
-                                <rect key="frame" x="34" y="142" width="239" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jE6-Cm-zj3">
-                                <rect key="frame" x="281" y="94" width="32" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Set">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" white="1" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="setIP:" destination="0yk-Iw-e6m" eventType="touchUpInside" id="58h-5c-LvY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="upV-Ez-jsz">
-                                <rect key="frame" x="281" y="137" width="32" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Set">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="setIP2:" destination="0yk-Iw-e6m" eventType="touchUpInside" id="PN3-RR-kmA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZO-V2-1yZ">
-                                <rect key="frame" x="34" y="28" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="icons8-search.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="doButton:" destination="0yk-Iw-e6m" eventType="touchUpInside" id="L0f-oF-TzA"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <connections>
-                        <outlet property="firstButton" destination="jE6-Cm-zj3" id="YOJ-dT-Jht"/>
-                        <outlet property="ip2Label" destination="bFf-fc-8uW" id="Ycl-Pm-5cY"/>
-                        <outlet property="ipFind" destination="mZO-V2-1yZ" id="eoV-87-Kon"/>
-                        <outlet property="ipLabel" destination="rkG-T5-Rcu" id="ZIZ-DF-0on"/>
-                        <outlet property="secondButton" destination="upV-Ez-jsz" id="sFN-nB-ftK"/>
-                        <segue destination="jQn-VN-SxB" kind="show" identifier="cameraShow" id="Y1Q-Kd-TCU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z7Z-L0-hvg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-396" y="-8055"/>
-        </scene>
         <!--Filter View-->
         <scene sceneID="H2Q-o5-my4">
             <objects>
@@ -365,6 +290,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gu7-pa-HDB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-227" y="-6421"/>
+        </scene>
+        <!--Login Table-->
+        <scene sceneID="q8d-h3-KNB">
+            <objects>
+                <viewController id="ZkY-mA-ybd" customClass="LoginTable" customModule="RtspClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8DD-7O-hVK"/>
+                        <viewControllerLayoutGuide type="bottom" id="JgP-f7-wNq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9f2-Gk-hth">
+                        <rect key="frame" x="0.0" y="0.0" width="329" height="629"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvC-Gy-Ckm">
+                                <rect key="frame" x="120.5" y="0.0" width="88" height="30"/>
+                                <state key="normal" title="Find Devices">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="doButton:" destination="ZkY-mA-ybd" eventType="touchUpInside" id="qLp-SO-aTk"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DZz-cw-2D6">
+                                <rect key="frame" x="44" y="40" width="240" height="188"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellReuseIdentifier" id="ccs-sW-1il" customClass="CellClass" customModule="RtspClient" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="240" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ccs-sW-1il" id="ZeW-tc-F1e">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="9f2-Gk-hth" id="ccu-sA-FGd"/>
+                                    <outlet property="delegate" destination="9f2-Gk-hth" id="z8Q-bl-imQ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TvC-Gy-Ckm" firstAttribute="top" secondItem="9f2-Gk-hth" secondAttribute="top" id="02I-zP-GZc"/>
+                            <constraint firstItem="TvC-Gy-Ckm" firstAttribute="centerX" secondItem="9f2-Gk-hth" secondAttribute="centerX" id="Dei-f6-iym"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="DZz-cw-2D6" id="zEl-ID-uYU"/>
+                        <outlet property="theButton" destination="TvC-Gy-Ckm" id="ACm-n3-mbp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DaL-RH-N5j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-508.30078124999994" y="-8121.484375"/>
         </scene>
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
@@ -469,10 +452,10 @@
                                 </subviews>
                             </scrollView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bpp-nL-3dG">
-                                <rect key="frame" x="20" y="141" width="329" height="271"/>
+                                <rect key="frame" x="20" y="111" width="329" height="629"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="0yk-Iw-e6m" kind="embed" id="yAm-I7-Z0M"/>
+                                    <segue destination="ZkY-mA-ybd" kind="embed" id="QZf-sM-qpU"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -492,7 +475,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="73" y="-7941"/>
+            <point key="canvasLocation" x="72.65625" y="-7941.40625"/>
         </scene>
         <!--cameraController-->
         <scene sceneID="NWt-qf-9AY">
@@ -503,7 +486,7 @@
                         <viewControllerLayoutGuide type="bottom" id="QCE-o3-xtp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RIJ-Yq-jWm">
-                        <rect key="frame" x="0.0" y="0.0" width="329" height="271"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N7w-ly-vBd">
@@ -553,7 +536,7 @@
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1B-GO-egf">
-                                <rect key="frame" x="647" y="-67" width="0.0" height="338"/>
+                                <rect key="frame" x="647" y="430" width="695" height="338"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="TnK-KM-to9" kind="embed" id="UPP-Te-LpA"/>
@@ -830,23 +813,6 @@
             </objects>
             <point key="canvasLocation" x="3062" y="-12062"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="txQ-6Y-fih">
-            <objects>
-                <viewController id="uHH-Ry-oCM" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WUk-8a-bXb"/>
-                        <viewControllerLayoutGuide type="bottom" id="fOc-jI-HjG"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="adi-lV-IU9">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rv7-ht-Zva" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="CameraAppIcon_3_167px" width="167" height="167"/>
@@ -855,7 +821,6 @@
         <image name="f-stop_active_72" width="72" height="72"/>
         <image name="facebutton" width="16" height="16"/>
         <image name="iPhoneAppHome_virt" width="1125" height="2436"/>
-        <image name="icons8-search.png" width="60" height="60"/>
         <image name="menu_active_48" width="48" height="48"/>
         <image name="menu_active_72" width="72" height="72"/>
         <image name="play_active_48" width="48" height="48"/>
@@ -863,6 +828,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="KPK-iL-A8g"/>
-        <segue reference="Y1Q-Kd-TCU"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -44,7 +44,9 @@
 		D39CA87E20EA5FE1003D31E0 /* ExposureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39CA87D20EA5FE1003D31E0 /* ExposureView.swift */; };
 		D3A33B402100E8BC0000F3E7 /* FindIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A33B3F2100E8BC0000F3E7 /* FindIP.swift */; };
 		D3C0F00220E7A75F00A0F57B /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C0F00120E7A75F00A0F57B /* SettingsController.swift */; };
+		D3CC7D03210BB5A9008A3A15 /* LoginTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CC7D02210BB5A9008A3A15 /* LoginTable.swift */; };
 		D3DC9C3F20F4DA4000779542 /* DrawClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC9C3E20F4DA4000779542 /* DrawClass.swift */; };
+		D3E23197210BBDAF00BE787F /* CellClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E23196210BBDAF00BE787F /* CellClass.swift */; };
 		D3FEFFD720F8D5A9007ED64A /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FEFFD620F8D5A9007ED64A /* PopUp.swift */; };
 		D3FEFFD920F8EA3F007ED64A /* facebutton in Resources */ = {isa = PBXBuildFile; fileRef = D3FEFFD820F8EA3F007ED64A /* facebutton */; };
 /* End PBXBuildFile section */
@@ -94,7 +96,9 @@
 		D3A33B022100C91F0000F3E7 /* RtspClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RtspClient.entitlements; sourceTree = "<group>"; };
 		D3A33B3F2100E8BC0000F3E7 /* FindIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindIP.swift; sourceTree = "<group>"; };
 		D3C0F00120E7A75F00A0F57B /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		D3CC7D02210BB5A9008A3A15 /* LoginTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTable.swift; sourceTree = "<group>"; };
 		D3DC9C3E20F4DA4000779542 /* DrawClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawClass.swift; sourceTree = "<group>"; };
+		D3E23196210BBDAF00BE787F /* CellClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellClass.swift; sourceTree = "<group>"; };
 		D3FEFFD620F8D5A9007ED64A /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
 		D3FEFFD820F8EA3F007ED64A /* facebutton */ = {isa = PBXFileReference; lastKnownFileType = file; path = facebutton; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +162,7 @@
 				D380435E210225A700C15196 /* icons8-search.png */,
 				D3712DEB20EBC70700C07773 /* Assets.xcassets */,
 				415C639E1CECC824005F81E4 /* Main.storyboard */,
+				D3CC7D02210BB5A9008A3A15 /* LoginTable.swift */,
 				D3DC9C3E20F4DA4000779542 /* DrawClass.swift */,
 				D3948E9E20E6A7AC00994184 /* Inceptionv3.mlmodel */,
 				D3FEFFD620F8D5A9007ED64A /* PopUp.swift */,
@@ -171,6 +176,7 @@
 		D3948E9520E6A4D000994184 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D3E23196210BBDAF00BE787F /* CellClass.swift */,
 				D365198020F244C600E64CD2 /* Image.swift */,
 				D3948EAE20E6A92800994184 /* ControlSideBar.swift */,
 				D3948EA820E6A80600994184 /* UIViewController+Alert.swift */,
@@ -305,8 +311,10 @@
 				D3948EA920E6A80700994184 /* UIViewController+Alert.swift in Sources */,
 				D326173120EFF0F400170D93 /* FilterView.swift in Sources */,
 				D3FEFFD720F8D5A9007ED64A /* PopUp.swift in Sources */,
+				D3E23197210BBDAF00BE787F /* CellClass.swift in Sources */,
 				D365198120F244C600E64CD2 /* Image.swift in Sources */,
 				D3948E9920E6A53100994184 /* Login.swift in Sources */,
+				D3CC7D03210BB5A9008A3A15 /* LoginTable.swift in Sources */,
 				D3948EA120E6A7CA00994184 /* ControllerClass.swift in Sources */,
 				D3948EA520E6A7EF00994184 /* UIImage+CVPixelBuffer.swift in Sources */,
 				D3948E9D20E6A71800994184 /* SoapXMLParser.swift in Sources */,
