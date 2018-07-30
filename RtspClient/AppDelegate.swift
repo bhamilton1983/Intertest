@@ -1,9 +1,7 @@
 //
 //  AppDelegate.swift
 //  RtspClient
-//
-//  Created by Teocci on 18/05/16.
-//
+
 
 import UIKit
 

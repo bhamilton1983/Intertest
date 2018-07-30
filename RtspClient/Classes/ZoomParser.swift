@@ -21,7 +21,19 @@ class zoomParser: NSObject, XMLParserDelegate {
         let soapMessage = soapMessage1 + soapMessage2 + soapMessage3
         
         print(soapMessage)
-     
+        
+        
+        
+        let port = LoginTable.servicePort
+        let host = LoginTable.hostname
+      
+        let protectionSpace = URLProtectionSpace.init(host: host!,
+                                                      port: port!,
+                                                      protocol: "http",
+                                                      realm: nil,
+                                                      authenticationMethod: nil)
+        
+        var credential: URLCredential? = URLCredentialStorage.shared.defaultCredential(for: protectionSpace)
         
         let url = NSURL(string:"http://admin:admin@\(Login.ip)/services/configuration.ion?action=setparams&format=text")
         
@@ -31,6 +43,7 @@ class zoomParser: NSObject, XMLParserDelegate {
         theRequest.addValue("text/xml", forHTTPHeaderField: "Content-Type")
         theRequest.httpMethod = "POST"
         theRequest.httpBody = soapMessage.data(using: String.Encoding.utf8, allowLossyConversion:false )
+     
         
         _ = NSURLConnection(request: theRequest as URLRequest, delegate: self)
         

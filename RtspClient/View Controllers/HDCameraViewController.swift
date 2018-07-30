@@ -16,8 +16,12 @@ import QuartzCore
 
 class HDCameraViewController: UIViewController, RPPreviewViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIGestureRecognizerDelegate,UIScrollViewDelegate {
    
+    @IBOutlet weak var topLeft: UIButton!
+    @IBOutlet weak var topRight: UIButton!
     
+    @IBOutlet weak var bottomLeft: UIButton!
     
+    @IBOutlet weak var bottomRight: UIButton!
     
     
     @IBOutlet weak var stopButton: UIButton!
@@ -123,7 +127,15 @@ class HDCameraViewController: UIViewController, RPPreviewViewControllerDelegate,
         cameraScroll.addSubview(cropImageView)
     }
     
-
+    @IBAction func topLeftZoom(_ sender: Any) {
+        cameraScroll.zoomScale = 1
+        cameraScroll.maximumZoomScale = 10.0
+        let x = cameraScroll.bounds.width / 2
+        let y = cameraScroll.bounds.height / 2
+       cameraScroll.zoom(to: CGRect(x:x, y:y, width:200, height: 200), animated: true)
+      
+    }
+    
 
  
     @IBOutlet weak var savePhoto: UIButton!
@@ -299,7 +311,7 @@ class HDCameraViewController: UIViewController, RPPreviewViewControllerDelegate,
     func cropToBounds(image: UIImage, rect: CGRect) -> UIImage {
         
         let cgimage = image.cgImage!
-        let contextImage: UIImage = UIImage(cgImage: cgimage)
+        let _: UIImage = UIImage(cgImage: cgimage)
         // let __CGSize__CGSize = contextImage.size
         // Create bitmap image from context using the rect
         let imageRef: CGImage = cgimage.cropping(to: cameraScroll.frame)!

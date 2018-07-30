@@ -1,24 +1,25 @@
 //
 //  LoginTable.swift
 //  RtspClient
-//
 //  Created by Brian Hamilton on 7/27/18.
-//  Copyright © 2018 Andres Rojas. All rights reserved.
-//
+
 
 import UIKit
 
 class LoginTable: UIViewController, UITableViewDataSource,UITableViewDelegate,NetServiceBrowserDelegate, NetServiceDelegate {
-
-    
-    @IBOutlet weak var theButton: UIButton!
+ 
+        
+  
+    static var servicePort:Int?
+    static var hostname:String?
+    static var IPDict = [Int : String]()
     @IBOutlet weak var tableView: UITableView!
     var nsb : NetServiceBrowser!
     var services = [NetService]()
     var ipaddress1:String?
-    var ipaddress2:String = ""
+    static var ipaddress2:String?
     var data: [String] = []
-    var newArray: [String] = []
+    static var newArray: [String] = []
     @IBAction func doButton (_ sender: Any!) {
         print("listening for services...")
         self.services.removeAll()
@@ -34,29 +35,41 @@ class LoginTable: UIViewController, UITableViewDataSource,UITableViewDelegate,Ne
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newArray.count
+        return LoginTable.newArray.count
     }
     
-    
+    static var textCell:String?
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")! //1.
-        let text = newArray[indexPath.row]
+    
+     
+        let cell = tableView.dequeueReusableCell(withIdentifier: "loginCell")! //1.
+        cell.backgroundColor = UIColor.clear
+        let text = LoginTable.newArray[indexPath.row]
+      
         cell.textLabel?.text = text //3.
-       
-        let cellButton = UIButton()
-        cellButton.setTitleColor(UIColor.white, for: UIControl.State.normal)
-        cellButton.setTitle(text, for: UIControl.State.normal)
-        cellButton.backgroundColor = UIColor.gray
-        cell.addSubview(cellButton)
-        cellButton.addTarget(self, action: #selector(self.buttonClicked(sender:)), for: .touchUpInside)
+        let track_Button = UIButton()
+        track_Button.setTitle("Set", for: .normal)
+        let btnImage = UIImage(named: "play_active_48")
+        track_Button.setImage (btnImage, for: UIControl.State.normal)
+        track_Button.frame = CGRect(x: self.view.frame.size.width - 50, y: 0, width: 40, height: 40)
+        track_Button.backgroundColor = UIColor.clear
+        track_Button.addTarget(self, action: #selector(track_Button_Pressed(sender:)), for: UIControl.Event.touchDown)
+        track_Button.tag = indexPath.row
+        cell.addSubview(track_Button)
+        
         return cell //4.
+        
     }
-    
- @objc func buttonClicked(sender: UIButton!) {
-    
-    print("doesthiswork")
-    
+    @objc func track_Button_Pressed(sender: UIButton!) {
+
+        let buttonPosition = sender.convert(CGPoint.zero, to: self.tableView)
+        let index = self.tableView.indexPathForRow(at: buttonPosition)!
+        let position = index.row
+        Login.ip = LoginTable.newArray[position]
+        Login.rtsp = "rtsp://admin:admin@\(LoginTable.newArray[position])/videoinput_1/h264_1/media.stm"
+        print(Login.rtsp)
+        performSegue(withIdentifier: "showCamera", sender: UIButton.self)
     }
     
     
@@ -79,7 +92,14 @@ class LoginTable: UIViewController, UITableViewDataSource,UITableViewDelegate,Ne
                 print("service \(service.name) of type \(service.type)," +
                     "port \(service.port), addresses \(service.addresses!))")
                 print(service.addresses!)
+              
+                LoginTable.servicePort = service.port
+                LoginTable.hostname = service.name
+                   LoginTable.IPDict.updateValue(LoginTable.hostname!, forKey: LoginTable.servicePort!)
                 self.tableView.reloadData()
+               
+             
+                
             }
             
         }
@@ -95,8 +115,8 @@ class LoginTable: UIViewController, UITableViewDataSource,UITableViewDelegate,Ne
             }
         }
         ipaddress1 = String(cString:hostname)
-        newArray.append(ipaddress1!)
-        print(newArray)
+        LoginTable.newArray.append(ipaddress1!)
+        print(LoginTable.newArray)
         self.updateInterface()
     }
     func netServiceBrowser(_ aNetServiceBrowser: NetServiceBrowser, didFind aNetService: NetService, moreComing: Bool) {
