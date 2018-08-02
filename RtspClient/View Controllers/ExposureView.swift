@@ -17,30 +17,15 @@ class ExposureView: UIViewController,UIPickerViewDelegate, UIPickerViewDataSourc
     static var currentIrisLevel = String ()
     static var currentMotorLevel = String ()
     @IBOutlet weak var irisLabelExpoView: UILabel!
-    
     @IBOutlet weak var irisSliderExpo: UISlider!
     @IBOutlet weak var whiteBalanceSegment: UISegmentedControl!
     @IBOutlet weak var autoExposureSegment: UISegmentedControl!
     @IBOutlet weak var manualICRSegment: UISegmentedControl!
-    
-    @IBOutlet weak var motorSlider: UISlider!
-    @IBOutlet weak var motorLabel: UILabel!
     @IBOutlet weak var wdrSegment: UISegmentedControl!
+    var http = HttpService()
     
     
     
-    
-    @IBAction func motionSlider(_ sender: UISlider) {
-        
-        ExposureView.exposureControl = sliderSensCommand.gainLevel
-        let gainLevel = Int(sender.value)
-        gainLabel.text = "\(gainLevel)"
-        var xmlParser : ExposureParser?
-        xmlParser = ExposureParser()
-        xmlParser!.getSliderCommand()
-        ExposureView.currentGainLevel = String(gainLevel)
-        
-    }
     
     
     
@@ -115,35 +100,35 @@ class ExposureView: UIViewController,UIPickerViewDelegate, UIPickerViewDataSourc
     }
 
     @IBOutlet weak var gainLabel: UILabel!
-    
-    @IBAction func gainSlider(_ sender: UISlider) {
-        
-         ExposureView.exposureControl = sliderSensCommand.gainLevel
-        let gainLevel = Int(sender.value)
-        gainLabel.text = "\(gainLevel)"
-        var xmlParser : ExposureParser?
-        xmlParser = ExposureParser()
-        xmlParser!.getSliderCommand()
-        ExposureView.currentGainLevel = String(gainLevel)
-        
-        
-        
-    }
-    
-    @IBAction func irisSliderChangeExpo(_ sender: UISlider) {
-   
-        ExposureView.exposureControl = mainInstance.iris
-        let irisLevel = Int(sender.value)
-        irisLabelExpoView.text = "\(irisLevel)"
-        var xmlParser : ExposureParser?
-        xmlParser = ExposureParser()
-        xmlParser!.getSliderCommand()
-        ExposureView.currentIrisLevel = String(irisLevel)
-    
-    
-    
-    }
-    
+//    
+//    @IBAction func gainSlider(_ sender: UISlider) {
+//        
+//         ExposureView.exposureControl = sliderSensCommand.gainLevel
+//        let gainLevel = Int(sender.value)
+//        gainLabel.text = "\(gainLevel)"
+//        var xmlParser : ExposureParser?
+//        xmlParser = ExposureParser()
+//        xmlParser!.getSliderCommand()
+//        ExposureView.currentGainLevel = String(gainLevel)
+//        
+//        
+//        
+//    }
+//    
+//    @IBAction func irisSliderChangeExpo(_ sender: UISlider) {
+//   
+//        ExposureView.exposureControl = mainInstance.iris
+//        let irisLevel = Int(sender.value)
+//        irisLabelExpoView.text = "\(irisLevel)"
+//        var xmlParser : ExposureParser?
+//        xmlParser = ExposureParser()
+//        xmlParser!.getSliderCommand()
+//        ExposureView.currentIrisLevel = String(irisLevel)
+//    
+//    
+//    
+//    }
+//    
     
     
     
@@ -186,29 +171,22 @@ class ExposureView: UIViewController,UIPickerViewDelegate, UIPickerViewDataSourc
     @IBOutlet weak var shutterSet: UIButton!
     @IBAction func setShutterButton(_ sender: Any) {
         
-        var xmlParser :SOAPXMLParserPicker?
-        xmlParser = SOAPXMLParserPicker()
-        xmlParser!.getParserCommand()
         
+                    http.getPickerValue()
     }
-        // Do any additional setup after loading the view.
-    }
+    
+    
     func autoExposureOff ()
     {
         ControlSideBar.controlTF = "manual"
         ControlSideBar.control  = automaticExposure.autoExposure
-        var xmlParser : SOAPXMLParserBOOL?
-        xmlParser = SOAPXMLParserBOOL()
-        xmlParser!.getBoolCommand()
-        
+                http.getBool()
     }
     func autoExposureOn()
     {
         ControlSideBar.control  = automaticExposure.autoExposure
         ControlSideBar.controlTF = "auto"
-        var xmlParser : SOAPXMLParserBOOL?
-        xmlParser = SOAPXMLParserBOOL()
-        xmlParser!.getBoolCommand()
+            http.getBool()
         
     }
 
@@ -218,27 +196,21 @@ class ExposureView: UIViewController,UIPickerViewDelegate, UIPickerViewDataSourc
   
     ControlSideBar.control = "widedynamicrange"
     ControlSideBar.controlTF = "=true"
-    var xmlParser : SOAPXMLParserBOOL?
-    xmlParser = SOAPXMLParserBOOL()
-    xmlParser!.getBoolCommand()
+            http.getBool()
 }
 func wdrOff()
 {
     
     ControlSideBar.control = "widedynamicrange"
     ControlSideBar.controlTF = "=false"
-    var xmlParser : SOAPXMLParserBOOL?
-    xmlParser = SOAPXMLParserBOOL()
-    xmlParser!.getBoolCommand()
+            http.getBool()
 }
 func whiteBalanceAuto ()
 
 {
     ExposureView.exposureControl = whitebalanceInstance.front
     ExposureView.exposureControlSelected  = "auto"
-    var xmlParser : SOAPXMLParser?
-    xmlParser = SOAPXMLParser()
-    xmlParser!.getZoomCommand()
+    http.getExposure()
     
 }
 func whiteBalanceIndoor ()
@@ -246,9 +218,7 @@ func whiteBalanceIndoor ()
 {
     ExposureView.exposureControl = whitebalanceInstance.front
     ExposureView.exposureControlSelected  = "indoor"
-    var xmlParser : SOAPXMLParser?
-    xmlParser = SOAPXMLParser()
-    xmlParser!.getZoomCommand()
+        http.getExposure()
     
 }
 func whiteBalanceOutdoor()
@@ -256,29 +226,23 @@ func whiteBalanceOutdoor()
 {
     ExposureView.exposureControl = whitebalanceInstance.front
     ExposureView.exposureControlSelected  = "outdoor"
-    var xmlParser : SOAPXMLParser?
-    xmlParser = SOAPXMLParser()
-    xmlParser!.getZoomCommand()
+    http.getExposure()
     
 }
 func whiteBalanceSodium()
     
 {
-    ExposureView.exposureControl = whitebalanceInstance.front
-    ExposureView.exposureControlSelected  = "sodium"
-    var xmlParser : SOAPXMLParser?
-    xmlParser = SOAPXMLParser()
-    xmlParser!.getZoomCommand()
+        ExposureView.exposureControl = whitebalanceInstance.front
+        ExposureView.exposureControlSelected  = "sodium"
+        http.getExposure()
     
 }
 func ICROn()
     
 {
-    ExposureView.exposureControl = icrCommands.firstICR
-    ExposureView.exposureControlSelected  = "true"
-    var xmlParser : SOAPXMLParser?
-    xmlParser = SOAPXMLParser()
-    xmlParser!.getZoomCommand()
+        ExposureView.exposureControl = icrCommands.firstICR
+        ExposureView.exposureControlSelected  = "true"
+        http.getBool()
     
 }
 func ICROff()
@@ -286,10 +250,7 @@ func ICROff()
     {
         ExposureView.exposureControl = icrCommands.firstICR
         ExposureView.exposureControlSelected  = "false"
-        var xmlParser : SOAPXMLParser?
-        xmlParser = SOAPXMLParser()
-        xmlParser!.getZoomCommand()
-        
+         http.getBool()
 }
     /*
     // MARK: - Navigation
@@ -302,3 +263,4 @@ func ICROff()
     */
 
 
+}

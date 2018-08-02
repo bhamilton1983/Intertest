@@ -12,75 +12,53 @@ class zoomParser: NSObject, XMLParserDelegate {
     var webData2 : NSMutableData?
     var webData1 : NSMutableData?
     var webData : NSMutableData?
-    
+    static var SOAPGlobal:String?
     func getZoomCameraCommand () {
         
         let soapMessage1 = ZoomViewController.segmentChoice
         let soapMessage2 = ZoomViewController.currentZoomLevel
         let soapMessage3 = mainInstance.endstring
         let soapMessage = soapMessage1 + soapMessage2 + soapMessage3
-        
+            zoomParser.SOAPGlobal = soapMessage
         print(soapMessage)
         
         
         
-        let port = LoginTable.servicePort
-        let host = LoginTable.hostname
+        let credential = URLCredential(
+            user: "admin",
+            password: "admin",
+            persistence: .forSession
+        )
+        let protectionSpace = URLProtectionSpace(
+            host: "example.com",
+            port: 80,
+            protocol: "https",
+            realm: nil,
+            authenticationMethod: NSURLAuthenticationMethodHTTPBasic
+        )
+        URLCredentialStorage.shared.setDefaultCredential(credential, for: protectionSpace)
       
-        let protectionSpace = URLProtectionSpace.init(host: host!,
-                                                      port: port!,
-                                                      protocol: "http",
-                                                      realm: nil,
-                                                      authenticationMethod: nil)
+        let session = URLSession.shared
+
+        let url = URL(string:"http://admin:admin@\(Login.ip)/services/configuration.ion?action=setparams&format=text")
         
-        var credential: URLCredential? = URLCredentialStorage.shared.defaultCredential(for: protectionSpace)
-        
-        let url = NSURL(string:"http://admin:admin@\(Login.ip)/services/configuration.ion?action=setparams&format=text")
-        
-        
-        let theRequest = NSMutableURLRequest(url: url! as URL)
-        
+        var theRequest = URLRequest(url: url! as URL)
         theRequest.addValue("text/xml", forHTTPHeaderField: "Content-Type")
         theRequest.httpMethod = "POST"
         theRequest.httpBody = soapMessage.data(using: String.Encoding.utf8, allowLossyConversion:false )
-     
-        
-        _ = NSURLConnection(request: theRequest as URLRequest, delegate: self)
-        
+        theRequest.httpShouldUsePipelining = true
+        theRequest.httpShouldHandleCookies = true
+        let task = session.dataTask(with: theRequest) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if error != nil
+            {
+                print("error=\(String(describing: error))")
+                return
+            }
+
+        }
+           task.resume()
     }
-    func connection(connection: NSURLConnection, didFailWithError error: NSError)
-        
-    {}
-    
-    func connection(connection: NSURLConnection, didReceiveResponse respose: URLResponse)
-        
-    {
-        webData = NSMutableData()
-        
-    }
-    
-    func connection(connection: NSURLConnection, didReceiveData data: NSData)
-        
-    {
-        
-        webData!.append(data as Data)
-    }
-    
-    func connectionDidFinishLoading(connection: NSURLConnection)
-        
-    {
-        let xmlStr = NSString(data: webData! as Data, encoding: String.Encoding.utf8.rawValue)
-        
-        print("xmlst\(String(describing: xmlStr))")
-        
-    }
-  
-}
-class ExposureParser: NSObject, XMLParserDelegate {
-    
-    var webData2 : NSMutableData?
-    var webData1 : NSMutableData?
-    var webData : NSMutableData?
     
     func getSliderCommand () {
         
@@ -88,47 +66,40 @@ class ExposureParser: NSObject, XMLParserDelegate {
         let soapMessage2 = ExposureView.currentGainLevel    
         let soapMessage3 = mainInstance.endstring
         let soapMessage = soapMessage1 + soapMessage2 + soapMessage3
+        zoomParser.SOAPGlobal = soapMessage
+        let credential = URLCredential(
+            user: "admin",
+            password: "admin",
+            persistence: .forSession
+        )
+        let protectionSpace = URLProtectionSpace(
+            host: "example.com",
+            port: 80,
+            protocol: "https",
+            realm: nil,
+            authenticationMethod: NSURLAuthenticationMethodHTTPBasic
+        )
+        URLCredentialStorage.shared.setDefaultCredential(credential, for: protectionSpace)
         
-        print(soapMessage)
-        
-        
+        let session = URLSession.shared
         let url = NSURL(string:"http://admin:admin@\(Login.ip)/services/configuration.ion?action=setparams&format=text")
-        
-        
-        let theRequest = NSMutableURLRequest(url: url! as URL)
-        
+        var theRequest = URLRequest(url: url! as URL)
         theRequest.addValue("text/xml", forHTTPHeaderField: "Content-Type")
         theRequest.httpMethod = "POST"
         theRequest.httpBody = soapMessage.data(using: String.Encoding.utf8, allowLossyConversion:false )
-        
-        _ = NSURLConnection(request: theRequest as URLRequest, delegate: self)
-        
-    }
-    func connection(connection: NSURLConnection, didFailWithError error: NSError)
-        
-    {}
-    
-    func connection(connection: NSURLConnection, didReceiveResponse respose: URLResponse)
-        
-    {
-        webData = NSMutableData()
-        
-    }
-    
-    func connection(connection: NSURLConnection, didReceiveData data: NSData)
-        
-    {
-        
-        webData!.append(data as Data)
-    }
-    
-    func connectionDidFinishLoading(connection: NSURLConnection)
-        
-    {
-        let xmlStr = NSString(data: webData! as Data, encoding: String.Encoding.utf8.rawValue)
-        
-        print("xmlst\(String(describing: xmlStr))")
-        
-    }
-    
+        theRequest.httpShouldUsePipelining = true
+        theRequest.httpShouldHandleCookies = true
+        let task = session.dataTask(with: theRequest) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if error != nil
+            {
+                print("error=\(String(describing: error))")
+                return
+            }
+            
+        }
+        task.resume()
 }
+
+}
+

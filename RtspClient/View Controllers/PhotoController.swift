@@ -258,7 +258,7 @@ func gestureRecognizer3(_ gestureRecognizer: UIGestureRecognizer, shouldRecogniz
     func cropToBounds(image: UIImage, rect: CGRect) -> UIImage {
        
         let cgimage = image.cgImage!
-        let contextImage: UIImage = UIImage(cgImage: cgimage)
+        let _: UIImage = UIImage(cgImage: cgimage)
        // let __CGSize__CGSize = contextImage.size
        
         

@@ -9,6 +9,7 @@
 import UIKit
 
 class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+    
     static var shutterPicked:String = ""
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -47,10 +48,9 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBOutlet weak var shutterSet: UIButton!
     @IBAction func setShutterButton(_ sender: Any) {
-      
-        var xmlParser :SOAPXMLParserPicker?
-        xmlParser = SOAPXMLParserPicker()
-        xmlParser!.getParserCommand()
+        let http = HttpService()
+            http.getPickerValue()
+ 
 
     }
     

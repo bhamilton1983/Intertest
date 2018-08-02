@@ -9,93 +9,85 @@
 import UIKit
 
 class ControlSideBar: UIViewController {
+    var http = HttpService()
+    
     static var autofocusState:String = ""
- 
     static var control:String = ""
     static var controlTF:String = ""
     @IBOutlet weak var autoFocus: UISegmentedControl!
     @IBOutlet weak var autoExposure: UISegmentedControl!
-    
+
     @IBAction func autofocusChange(_ sender: Any) {
         switch  autoFocus.selectedSegmentIndex
-       
+
         {
         case 0:
-        
+
             autofocusOn()
-        
+
         case 1:
-            
+
             autofocusOff()
-        
+
         default:
             break
         }
-       
+
     }
-    
+
     @IBOutlet weak var autoExposureChange: UISegmentedControl!
-    
+
     @IBAction func autoExposureChanged(_ sender: Any) {
-   
+
     switch  autoExposure.selectedSegmentIndex
-    
+
     {
     case 0:
-    
+
     autoExposureOn()
-    
+
     case 1:
-    
+
     autoExposureOff()
-    
+
     default:
     break
     }
-    
+
 }
 func autofocusOn ()
 {
     ControlSideBar.controlTF = "true"
     ControlSideBar.control  = boolCommands.autoFocus
-    var xmlParser : SOAPXMLParserBOOL?
-    xmlParser = SOAPXMLParserBOOL()
-    xmlParser!.getBoolCommand()
-    
+        http.getBool()
+
 }
 func autoExposureOn()
 {
     ControlSideBar.control  = automaticExposure.autoExposure
     ControlSideBar.controlTF = "auto"
-    var xmlParser : SOAPXMLParserBOOL?
-    xmlParser = SOAPXMLParserBOOL()
-    xmlParser!.getBoolCommand()
-    
+    http.getBool()
+
 }
 
     func autoExposureOff ()
     {
         ControlSideBar.controlTF = "manual"
         ControlSideBar.control  = automaticExposure.autoExposure
-        var xmlParser : SOAPXMLParserBOOL?
-        xmlParser = SOAPXMLParserBOOL()
-        xmlParser!.getBoolCommand()
-        
+         http.getBool()
+
     }
 func autofocusOff()
-{
+    {
     ControlSideBar.control  = boolCommands.autoFocus
     ControlSideBar.controlTF = "false"
-    var xmlParser : SOAPXMLParserBOOL?
-    xmlParser = SOAPXMLParserBOOL()
-    xmlParser!.getBoolCommand()
-   
+     http.getBool()
     }
 
     @IBOutlet weak var controlSegmentInput: UISegmentedControl!
-    
-    
- 
+
+
+
 
 
 
@@ -110,7 +102,7 @@ func autofocusOff()
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 
     /*
     // MARK: - Navigation
