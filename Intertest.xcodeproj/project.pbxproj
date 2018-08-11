@@ -42,6 +42,7 @@
 		D3948EAF20E6A92800994184 /* ControlSideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3948EAE20E6A92800994184 /* ControlSideBar.swift */; };
 		D3948EB120E6A96800994184 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3948EB020E6A96800994184 /* PickerViewController.swift */; };
 		D39CA87E20EA5FE1003D31E0 /* ExposureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39CA87D20EA5FE1003D31E0 /* ExposureView.swift */; };
+		D3A719F2211F21E40065E08C /* MakeMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A719F1211F21E40065E08C /* MakeMovie.swift */; };
 		D3BBBB682111F2EA002BDD08 /* CameraClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BBBB672111F2EA002BDD08 /* CameraClass.swift */; };
 		D3BFFC3F210C8FBE007D7DA2 /* TouchStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BFFC3E210C8FBE007D7DA2 /* TouchStuff.swift */; };
 		D3BFFC42210CAF50007D7DA2 /* IPCellClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BFFC40210CAF50007D7DA2 /* IPCellClassTableViewCell.swift */; };
@@ -49,7 +50,6 @@
 		D3C0F00220E7A75F00A0F57B /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C0F00120E7A75F00A0F57B /* SettingsController.swift */; };
 		D3CC7D03210BB5A9008A3A15 /* LoginTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CC7D02210BB5A9008A3A15 /* LoginTable.swift */; };
 		D3D8F34E211120890008425C /* Extension_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D8F34D211120890008425C /* Extension_String.swift */; };
-		D3D9079C211333BB00078E9E /* VideoRecordingTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D9079B211333BB00078E9E /* VideoRecordingTesting.swift */; };
 		D3DC9C3F20F4DA4000779542 /* DrawClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DC9C3E20F4DA4000779542 /* DrawClass.swift */; };
 		D3FC9E9C2112A4B300430DB2 /* subCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FC9E9B2112A4B300430DB2 /* subCameraView.swift */; };
 		D3FEFFD920F8EA3F007ED64A /* facebutton in Resources */ = {isa = PBXBuildFile; fileRef = D3FEFFD820F8EA3F007ED64A /* facebutton */; };
@@ -98,6 +98,7 @@
 		D3948EB020E6A96800994184 /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		D39CA87D20EA5FE1003D31E0 /* ExposureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposureView.swift; sourceTree = "<group>"; };
 		D3A33B022100C91F0000F3E7 /* RtspClient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RtspClient.entitlements; sourceTree = "<group>"; };
+		D3A719F1211F21E40065E08C /* MakeMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeMovie.swift; sourceTree = "<group>"; };
 		D3BBBB672111F2EA002BDD08 /* CameraClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraClass.swift; sourceTree = "<group>"; };
 		D3BFFC3E210C8FBE007D7DA2 /* TouchStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchStuff.swift; sourceTree = "<group>"; };
 		D3BFFC40210CAF50007D7DA2 /* IPCellClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPCellClassTableViewCell.swift; sourceTree = "<group>"; };
@@ -105,7 +106,6 @@
 		D3C0F00120E7A75F00A0F57B /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		D3CC7D02210BB5A9008A3A15 /* LoginTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTable.swift; sourceTree = "<group>"; };
 		D3D8F34D211120890008425C /* Extension_String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_String.swift; sourceTree = "<group>"; };
-		D3D9079B211333BB00078E9E /* VideoRecordingTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VideoRecordingTesting.swift; path = ../VideoRecordingTesting.swift; sourceTree = "<group>"; };
 		D3DC9C3E20F4DA4000779542 /* DrawClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawClass.swift; sourceTree = "<group>"; };
 		D3FC9E9B2112A4B300430DB2 /* subCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subCameraView.swift; sourceTree = "<group>"; };
 		D3FEFFD820F8EA3F007ED64A /* facebutton */ = {isa = PBXFileReference; lastKnownFileType = file; path = facebutton; sourceTree = "<group>"; };
@@ -135,7 +135,6 @@
 		415C638E1CECC824005F81E4 = {
 			isa = PBXGroup;
 			children = (
-				D3D9079B211333BB00078E9E /* VideoRecordingTesting.swift */,
 				415C63E51CECD063005F81E4 /* libavcodec.a */,
 				415C63E61CECD063005F81E4 /* libavdevice.a */,
 				415C63E71CECD063005F81E4 /* libavfilter.a */,
@@ -188,6 +187,7 @@
 				D3932BEB2110CF1200B8488D /* HttpService.swift */,
 				D3BBBB672111F2EA002BDD08 /* CameraClass.swift */,
 				D365198020F244C600E64CD2 /* Image.swift */,
+				D3A719F1211F21E40065E08C /* MakeMovie.swift */,
 				D3948EAE20E6A92800994184 /* ControlSideBar.swift */,
 				D3948EA820E6A80600994184 /* UIViewController+Alert.swift */,
 				D3948EA620E6A7FD00994184 /* ZoomParser.swift */,
@@ -334,9 +334,9 @@
 				D326173120EFF0F400170D93 /* FilterView.swift in Sources */,
 				D365198120F244C600E64CD2 /* Image.swift in Sources */,
 				D3D8F34E211120890008425C /* Extension_String.swift in Sources */,
-				D3D9079C211333BB00078E9E /* VideoRecordingTesting.swift in Sources */,
 				D3932BEC2110CF1200B8488D /* HttpService.swift in Sources */,
 				D3BFFC42210CAF50007D7DA2 /* IPCellClassTableViewCell.swift in Sources */,
+				D3A719F2211F21E40065E08C /* MakeMovie.swift in Sources */,
 				D3948E9920E6A53100994184 /* Login.swift in Sources */,
 				D3CC7D03210BB5A9008A3A15 /* LoginTable.swift in Sources */,
 				D3948EA520E6A7EF00994184 /* UIImage+CVPixelBuffer.swift in Sources */,

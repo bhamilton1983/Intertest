@@ -17,7 +17,7 @@ import QuartzCore
 class HDCameraViewController: UIViewController, RPPreviewViewControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIGestureRecognizerDelegate,UIScrollViewDelegate {
    
     
-    
+    static var videosave:UIImage?
     let http = HttpService ()
     let camera = Camera ()
     var video: RTSPPlayer?
@@ -25,6 +25,7 @@ class HDCameraViewController: UIViewController, RPPreviewViewControllerDelegate,
     var tapToggle = 0
     var identity = CGAffineTransform.identity
     var imagePicker: UIImagePickerController!
+    static var videoArray = [UIImage]()
     
   
     @IBOutlet weak var textView: UIView!
@@ -123,7 +124,18 @@ class HDCameraViewController: UIViewController, RPPreviewViewControllerDelegate,
     
     @objc func longPressed(sender: UILongPressGestureRecognizer)
     {
- 
+       
+        
+     
+        print("startRecording")
+        HDCameraViewController.videosave = HDimageView.image!
+        let settings = RenderSettings()
+        let imageAnimator = ImageAnimator(renderSettings: settings)
+        imageAnimator.render()
+            {
+            print("yes")
+        }
+        
     }
     //save photo to camera roll
     @IBAction func savePhotoTapped(_ sender: Any) {
